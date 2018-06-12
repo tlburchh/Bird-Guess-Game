@@ -14,12 +14,11 @@
   <body>
     <div class="container">
         <div class="row">
-            <!-- top box -->
             <div class="col-md-2"></div>
             <div class="col-md-8">
                 <div class="jumbotron" style="margin: 30px 0; padding: 32px;">
                     <h1 class="display-4">Guess that Bird!</h1>
-                    <p class="lead">To play the game pick a letter. If you chose all the correct letters and guess the bird you get a surprise!</p>
+                    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
                     <hr class="my-4">
                     <p>If you are interested in learning more about birds and their calls please visit Audobons website for more information.</p>
                     <a class="btn btn-primary btn-lg" href="https://www.audubon.org/bird-guide" role="button">Learn more!</a>
@@ -28,25 +27,21 @@
             <div class="col-md-2"></div>
         </div>
         <div class="row">
-            <!-- Left box -->
             <div class="col-md-2"></div>
             <div class="col-md-4">
-                <div class="card" style="height: 550px;">
-                    <img class="card-img-top" src="..\Word-Guess-Game\assets\images\bird-nest.jpg" alt="Card image cap">
+                <div class="card">
+                    <img class="card-img-top" src="http://via.placeholder.com/200x200" alt="Card image cap">
                     <div class="card-body">
-                      <h5 class="card-title">Guess that Bird</h5>
-                      <p class="card-text">Oops! Loos like the birds have left the nest. Can you guess the birds name to bring them back?</p>
-                      <a href="https://www.audubon.org/" class="btn btn-primary">Learn More!</a>
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
             </div>
-            <!-- Right box -->
             <div class="col-md-4">
-                <div class="card"  style="height: 550px;">
-                    <div class="card-body">
-                      <div id="game">
-                          <h3>Pick a letter!</h3>
-                      </div>
+                <div class="card">
+                    <div class="card-body" style="height: 550px">
+                      This is some text within a card body.
                     </div>
                 </div>
             </div>
@@ -60,35 +55,7 @@
                 </div>
             </div>
         </footer>
-    
-    <!-- Javascript -->
-    <script type="text/javascript">
 
-    var birdType = ["hawk","heron","bluejay","cardinal"];
-
-    // var correct = 0;
-    // var incorrect = 0;
-    
-    document.onkeyup = function(event) {
-
-        var userGuess = event.key;
-
-        // game documentation
-
-
-    // on screen
-    var html =
-    "<p> bird blank spaces" + "</p>" +
-    "<p> Correct: " + "</p>" +
-    "<p> Incorrect: " + "</p>";
-
-    document.querySelector("#game").innerHTML = html;
-
-
-
-    }
-    
-    </script>
     
 
     <!-- Optional JavaScript -->
