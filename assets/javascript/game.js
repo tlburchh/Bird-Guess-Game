@@ -1,27 +1,96 @@
 
-// create word list
+
 var birdType = ["hawk","heron","bluejay","cardinal"];
-
-//    wins = 0
 var wins = 0;
-//    remaining guesses = 12
 var guesses = 12;
-//    letters guessed
-var lettersGuessed = 0;
+var remainingGuesses = 0;
+var lettersGuessed = [];  
+var guessingWord = [];
+var currentBird
+var hasFinished = false;
 
-// randomly select word from list
-var computerGuess = birdType[Math.floor(Math.random() * birdType.length)];
+ 
 
-// represent word with _ _ _ 
+function resetGame(){
+    remainingGuesses === guesses;
+
+    currentBird = birdType[Math.floor(Math.random() * birdType.length)];
+
+    lettersGuessed = [];
+    guessingWord = [];
+
+    for (var i = 0; i < birdType[currentBird].length; i++) {
+    guessingWord.push("_");
+    }
+
+    updateDisplay();
+};
+
+function updateDisplay() {
+
+    var guessingWordText = "";
+    for (var i = 0; i < guessingWord.length; i++) {
+        guessingWordText += guessingWord[i];
+    }
+};
+
+function evaluateGuess(letter) {
+    var positions = [];
+    for (var i = 0; i < selectableWords[currentBird].length; i++) {
+        if(selectableWords[currentBird][i] === letter) {
+            positions.push(i);
+        }
+    }
+    if (positions.length <= 0) {
+        remainingGuesses--;
+    }else {
+        for(var i = 0; i < positions.length; i++) {
+            guessingWord[positions[i]] = letter;
+        }
+    }
+};
+function checkWin(){
+    if(guessingWord.indexOf("_") === -1) {
+        wins++;
+        hasFinished = true;
+    }
+};
+function checkLoss(){
+    if(remainingGuesses <= 0) {
+        hasFinished = true;
+    }
+};
+function makeGuess(letter) {
+    if (remainingGuesses > 0) {
+        if (guessedLetters.indexOf(letter) === -1) {
+            guessedLetters.push(letter);
+            evaluateGuess(letter);
+        }
+    }
+    
+};
+
+document.onkeydown = function(event) {
+    if(hasFinished) {
+        resetGame();
+        hasFinished = false;
+    } else {
+        if(event.keyCode >= 65 && event.keyCode <= 90) {
+            updateDisplay();
+            checkWin();
+            checkLoss();
+        }
+    }
+};
 
 
-document.onkeyup = function(event) {
 
-    var userGuess = event.key;
-}
-     // game documentation
 
-// player selects a letter
+
+
+     // player selects a letter
+
+
 
 // letter is right or wrong
 
@@ -34,13 +103,12 @@ document.onkeyup = function(event) {
 
 // else if all guesses reaches 0 reset game
 
- console.log(gameHTML);
-    // on screen
-    var gameHTML =
+
+    var updateDisplay =
     "<p> Press any key to play!" + "</p>"+
     "<p> Wins: " + wins + "</p>" +
-    "<p> bird blank spaces" + "</p>" +
+    "<p>" + guessingWord + "</p>" +
     "<p> Guesses Remaining: " + guesses + "</p>" +
     "<p> Letters Guessed: " + lettersGuessed + "</p>";
 
-    document.querySelector("#game").innerHTML = gameHTML;
+    document.querySelector("#game").innerHTML = updateDisplay;
