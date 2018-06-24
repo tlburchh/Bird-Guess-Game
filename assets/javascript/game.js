@@ -19,25 +19,26 @@ function resetGame(){
     lettersGuessed = [];
     guessingWord = [];
 
-    for (var i = 0; i < birdType[currentBird].length; i++) {
-    guessingWord.push("_");
+    for (var i = 0; i < currentBird.length; i++) {
+    guessingWord.push("_ ");
     }
-
-    updateDisplay();
+    // return currentBird, guessingWord;
+    // var guessingWordText = guessingWord.join (" ");
 };
+resetGame();
 
-function updateDisplay() {
+// function updateDisplay() {
 
-    var guessingWordText = "";
-    for (var i = 0; i < guessingWord.length; i++) {
-        guessingWordText += guessingWord[i];
-    }
-};
+//     var guessingWordText = guessingWord.join (" ");}
+    // for (var i = 0; i < guessingWord.length; i++) {
+        // guessingWordText += guessingWord[i];
+//     }
+// };
 
 function evaluateGuess(letter) {
     var positions = [];
-    for (var i = 0; i < selectableWords[currentBird].length; i++) {
-        if(selectableWords[currentBird][i] === letter) {
+    for (var i = 0; i < guessingWord.length; i++) {
+        if(guessingWord[currentBird[i]] === letter) {
             positions.push(i);
         }
     }
@@ -49,8 +50,9 @@ function evaluateGuess(letter) {
         }
     }
 };
+evaluateGuess();
 function checkWin(){
-    if(guessingWord.indexOf("_") === -1) {
+    if(guessingWord.indexOf("_ ") === -1) {
         wins++;
         hasFinished = true;
     }
@@ -72,15 +74,15 @@ function makeGuess(letter) {
 
 document.onkeydown = function(event) {
     if(hasFinished) {
+        //show image, sound and information
         resetGame();
         hasFinished = false;
-    } else {
+   } else {
         if(event.keyCode >= 65 && event.keyCode <= 90) {
-            updateDisplay();
             checkWin();
             checkLoss();
-        }
-    }
+       }
+   }
 };
 
 
