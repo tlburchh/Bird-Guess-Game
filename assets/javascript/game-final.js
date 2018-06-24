@@ -75,7 +75,7 @@ function roundComplete() {
         winCounter++;
         alert("You win!");
         document.getElementById("win-counter").innerHTML = winCounter;
-        startGame()
+        startGame();
     }
 
     else if (numGuesses === 0) {
@@ -91,7 +91,7 @@ startGame();
 document.onkeyup = function (event) {
     var letterGuessed = String.fromCharCode(event.which).toLowerCase();
     checkLetters(letterGuessed);
-    roundComplete()
+    roundComplete();
 };
 
 /*******************************
