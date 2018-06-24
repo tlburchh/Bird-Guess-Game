@@ -3,7 +3,7 @@ var chosenWord = "";
 var lettersInChosenWord = [];
 var numBlanks = 0;
 var blanksAndSuccess = [];
-var wrongGuess = [];
+var wrongGuesses = [];
 
 var winCounter = 0;
 var lossCounter = 0;
@@ -29,7 +29,7 @@ function startGame() {
   document.getElementById("guesses-left").text = ("Guesses left: " + numGuesses);
 
   // Prints the blanks at the beginning of each round in the HTML
-  document.getElementById("word-blanks").innerHTML = blanksAndSuccesses.join(" ");
+  document.getElementById("word-blanks").innerHTML = blanksAndSuccess.join(" ");
 
   // Clears the wrong guesses from the previous round
   document.getElementById("wrong-guesses").innerHTML = wrongGuesses.join(" ");
@@ -47,10 +47,10 @@ function checkLetters(letter) {
     if (letterInWord) {
         for (var j = 0; j < numBlanks; j++) {
             if (chosenWord[j] === letter) {
-                blanksAndSuccesses[j] = letter;
+                blanksAndSuccess[j] = letter;
             }
         }
-        console.log(blanksAndSuccesses);
+        console.log(blanksAndSuccess);
     }
     else {
         wrongGuess.push(letter);
@@ -63,7 +63,7 @@ function checkLetters(letter) {
 
      document.getElementById("guesses-left").innerHTML = numGuesses;
      // This will print the array of guesses and blanks onto the page.
-     document.getElementById("word-blanks").innerHTML = blanksAndSuccesses.join(" ");
+     document.getElementById("word-blanks").innerHTML = blanksAndSuccess.join(" ");
      // This will print the wrong guesses onto the page.
      document.getElementById("wrong-guesses").innerHTML = wrongGuesses.join(" ");
     if (lettersInChosenWord.toString() === blanksAndSuccess.toString()) {
@@ -79,7 +79,7 @@ function checkLetters(letter) {
         document.getElementById("loss-counter").innerHTML = lossCounter;
         startGame();
     }
-
+ }
     startGame();
 
     document.onkeyup = function(event) {
@@ -87,7 +87,7 @@ function checkLetters(letter) {
         checkLetters(letterGuessed);
         roundComplete()
     }
- }
+ 
 
 /*******************************
  * Display for UI
