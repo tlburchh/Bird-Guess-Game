@@ -8,6 +8,8 @@ var wrongGuess = [];
 var winCounter = 0;
 var lossCounter = 0;
 var numGuesses = lettersInChosenWord.length + 5;
+
+
 function startGame() {
     numGuesses = lettersInChosenWord.length + 5;
     chosenWord = wordsList[Math.floor(Math.random() * wordsList.length)];
