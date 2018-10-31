@@ -229,7 +229,7 @@ var wordGuessGame = {
   },
 
   // This function builds the display of the word that is currently being guessed.
-  // For example, if we are trying to guess "blondie", it might display "bl_ndi_".
+
   rebuildWordView: function() {
     // We start with an empty string.
     var wordView = "";
@@ -298,11 +298,9 @@ var wordGuessGame = {
       // Update wins on the page.
       document.querySelector("#wins").innerHTML = this.wins;
 
-      
-    //   document.querySelector("#birdDiv").innerHTML = this.wordsToPick[this.wordInPlay].song +
-    //   " By " + this.wordInPlay;
+    
 
-      // Update the image of the band on the page.
+      // Update the image of the bird on the page along with a button audobon website
     document.querySelector("#birdDiv").innerHTML =
         "<img class='card-img-top' src='" +
         this.wordsToPick[this.wordInPlay].picture + "' alt='" +
@@ -312,10 +310,6 @@ var wordGuessGame = {
         this.wordsToPick[this.wordInPlay].address + "'>" +
         this.wordsToPick[this.wordInPlay].name + "</a>";
 
-    // document.querySelector("#website").innerHTML =
-    //     "<a class='btn btn-primary' href='" +
-    //     this.wordsToPick[this.wordInPlay].address + "'>" +
-    //     this.wordsToPick[this.wordInPlay].name + "'</a>";
 
 
       // Play an audio track of the bird.
