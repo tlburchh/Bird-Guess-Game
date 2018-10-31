@@ -31,12 +31,12 @@
             <!-- Left box -->
             <div class="col-md-2"></div>
             <div class="col-md-4">
-                <div class="card" style="height: 550px;">
-                    <img class="card-img-top" src="assets/images/bird-nest.jpg" alt="Card image cap">
+                <div class="card" id="birdDiv" style="height: 550px;">
+                    <img class="card-img-top" src="https://www.katesnussman.com/blog/images/birds-nest.jpg" alt="Card image cap">
                     <div class="card-body">
                       <h5 class="card-title">Guess that Bird</h5>
                       <p class="card-text">Oops! Looks like the birds have left the nest. Can you guess the birds name to bring them back?</p>
-                      <a href="https://www.audubon.org/" class="btn btn-primary">Learn More!</a>
+                      <a id = "website" href="https://www.audubon.org/" class="btn btn-primary">Learn More!</a>
                     </div>
                 </div>
             </div>
@@ -49,15 +49,15 @@
                               <h2>Press any key to play!</h2>
                           </div>
                           <div class="row">
-                                <h3 id="word-blanks">_ _ _ _ _ _ _ _ _ </h3>
+                                <h3 id="current-word">_ _ _ _ _ _ _ _ _ </h3>
                         </div>
                           <div class="row">
-                                <strong>Wrong Guesses: </strong> <span id="wrong-guesses"></span>
+                                <strong>Wrong Guesses: </strong> <span id="guessed-letters"></span>
                           </div>
-                          <div class="row"><strong>Guesses Left: </strong> <span id="guesses-left">9</span>
+                          <div class="row"><strong>Guesses Left: </strong> <span id="guesses-remaining">9</span>
                         </div>
                           <div class="row">
-                                <strong>Wins: </strong> <span id="win-counter">0</span>
+                                <strong>Wins: </strong> <span id="wins">0</span>
                           </div>
                           <div class="row">
                                 <strong>Losses: </strong> <span id="loss-counter">0</span>
